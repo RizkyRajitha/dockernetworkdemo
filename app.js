@@ -4,7 +4,9 @@ import { getUsers } from "./dbfunc/user";
 
 const app = express();
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
+
+// console.log(process.env);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -16,10 +18,17 @@ app.get("/", (req, res) => {
 });
 
 app.get("/users", async (req, res) => {
-  let users = await getUsers();
+  let users;
+  try {
+    users = await getUsers();
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error.message);
+    return;
+  }
   res.json({ users });
 });
 
 app.listen(PORT, () => {
-  console.log("listning");
+  console.log(`listning on ${PORT}`);
 });
