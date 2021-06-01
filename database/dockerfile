@@ -1,0 +1,4 @@
+
+# postgres:10-alpine 
+
+FROM baseImage
