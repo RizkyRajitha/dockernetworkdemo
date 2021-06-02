@@ -13,9 +13,9 @@ ENV NODE_ENV=production
 ENV DBURL=postgres://postgres:123@172.20.0.5:5432/postgres
 ENV PORT=3001
 
-# RUN npm run migrate
-RUN ls
+RUN pwd
 COPY . .
 
 EXPOSE 3001
+
 CMD [ "npm", "run" , "prod" ]

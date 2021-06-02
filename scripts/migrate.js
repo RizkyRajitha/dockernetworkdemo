@@ -1,8 +1,8 @@
 const { Client } = require("pg");
 const fs = require("fs");
 
+// using localhost:6543 becuase we are executing this in host
 let dburl = `postgres://postgres:123@localhost:6543/postgres`;
-// let dburl = `postgres://dockernetworkdemo:123@localhost:5432/dockernetworkdemo`;
 
 console.log(dburl);
 
